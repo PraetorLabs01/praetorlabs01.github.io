@@ -5,13 +5,13 @@ html{scroll-behavior:smooth}
 
 /* Phones: the mockups were drawn for desktop; these rules fold every multi-column layout into one column. */
 @media (max-width: 680px){
+  #apps > div:first-child{flex-wrap:wrap;gap:8px}
   [style*="padding: 0 32px"]{padding-left:16px !important;padding-right:16px !important}
   [style*="grid-template-columns: repeat(auto-fit"],[style*="grid-template-columns: auto 1fr"],[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr !important}
   h1{font-size:clamp(28px,10vw,52px) !important}
   h1[style*="nowrap"]{font-size:8vw !important}
   h2{font-size:clamp(24px,7.5vw,40px) !important}
   [style*="font-size: 150px"]{font-size:84px !important}
-  section[style*="height: 720px"]{height:auto !important;min-height:560px;padding-top:120px !important}
   figure[style*="padding: 32px 40px 40px 0"]{padding:28px 28px 28px 0 !important}
   svg[style*="hfloat"]{display:none}
   section [aria-hidden="true"][style*="top: 260px"]{display:none !important}
