@@ -70,15 +70,33 @@ a:focus-visible{outline:2px solid #CDBDF2;outline-offset:3px}
       <div style="display: flex; flex-wrap: wrap; gap: 12px">
         <a class="cs-btn" href="https://ko-fi.com/praetorlabs" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 2px solid #CDBDF2; border-radius: 99px; text-decoration: none; letter-spacing: .08em">TIP ON KO-FI ▸</a>
         <a class="cs-btn" href="https://github.com/PraetorLabs01" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 2px solid #CDBDF2; border-radius: 99px; text-decoration: none; letter-spacing: .08em">GITHUB/</a>
-        <a class="cs-btn" href="mailto:praetorlabs@gmail.com" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 2px solid #CDBDF2; border-radius: 99px; text-decoration: none; letter-spacing: .08em">EMAIL/</a>
+        <a class="cs-btn" href="mailto:praetorlabs@gmail.com" data-copy-email title="Click to copy praetorlabs@gmail.com" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 2px solid #CDBDF2; border-radius: 99px; text-decoration: none; letter-spacing: .08em">EMAIL/</a>
       </div>
     </main>
 
     <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 20px 0 32px; border-top: 1px solid #CDBDF244; font-size: 12px; letter-spacing: .08em; color: #8F84AA">
-      <span>© 2026 PRAETOR LABS · <a href="mailto:praetorlabs@gmail.com" style="color: #CDBDF2; text-decoration: none; letter-spacing: .04em">PRAETORLABS@GMAIL.COM</a></span>
+      <span>© 2026 PRAETOR LABS · <a href="mailto:praetorlabs@gmail.com" data-copy-email title="Click to copy praetorlabs@gmail.com" style="color: #CDBDF2; text-decoration: none; letter-spacing: .04em">PRAETORLABS@GMAIL.COM</a></span>
       <span>NO COOKIES · NO TRACKING · NOTHING LOADED FROM OTHER SITES</span>
     </footer>
   </div>
 </div>
+<script>
+// Clicking an email link copies the address too, because mailto: does nothing on PCs with no email app set up.
+document.querySelectorAll('[data-copy-email]').forEach(function (a) {
+  a.addEventListener('click', function () {
+    var addr = a.getAttribute('href').replace('mailto:', '');
+    var label = a.textContent;
+    function done() { a.textContent = 'COPIED ✓'; setTimeout(function () { a.textContent = label; }, 1800); }
+    function fallback() {
+      var t = document.createElement('textarea');
+      t.value = addr; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      try { if (document.execCommand('copy')) done(); } catch (e) {}
+      document.body.removeChild(t);
+    }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(addr).then(done, fallback); } else { fallback(); }
+  });
+});
+</script>
 </body>
 </html>
