@@ -1,7 +1,6 @@
 # praetorlabshq.com
 
-The Praetor Labs website. For now it is a single "coming soon" page; the full site
-(apps, support, privacy) goes up later.
+The Praetor Labs website: free apps for gamers and friends.
 
-Plain HTML and CSS. Fonts are self-hosted (SIL Open Font License, see `assets/fonts/`),
-so the page makes no requests to other sites.
+Plain HTML and CSS served by GitHub Pages. Fonts are self-hosted (SIL Open Font License,
+see `assets/fonts/`), so the site makes no requests to other sites.
