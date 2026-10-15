@@ -1,4 +1,4 @@
-# praetorlabs01.github.io
+# praetorlabshq.com
 
 The Praetor Labs website. For now it is a single "coming soon" page; the full site
 (apps, support, privacy) goes up later.
